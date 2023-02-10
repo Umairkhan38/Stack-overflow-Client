@@ -72,7 +72,7 @@ const QuestionsDetails = () => {
     const dispatch = useDispatch()
     const User = useSelector((state) => (state.currentUserReducer))
     const location = useLocation()
-    const url = 'https://stackoverflowclone-backend-ju93.onrender.com';
+    const url = 'https://stackoverflow-umair.netlify.app';
 
 
 

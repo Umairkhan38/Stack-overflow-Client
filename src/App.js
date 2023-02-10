@@ -1,46 +1,197 @@
-import { BrowserRouter as Router } from 'react-router-dom' 
-import { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
-import './App.css';
-import Navbar from './components/Navbar/Navbar'
-import AllRoutes from './AllRoutes'
-import { fetchAllQuestions } from './actions/question'
-import { fetchAllUsers } from './actions/users'
-
-
+import { BrowserRouter as Router } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import "./App.css";
+import Navbar from "./components/Navbar/Navbar";
+import AllRoutes from "./AllRoutes";
+import { fetchAllQuestions } from "./actions/question";
+import { fetchAllUsers } from "./actions/users";
+import ChatBot from "react-simple-chatbot";
+import { Segment } from "semantic-ui-react";
+import chat from "./assets/headset-solid.svg";
+import close from "./assets/xmark-solid.svg";
+import { useSelector } from "react-redux";
 
 function App() {
+  const dispatch = useDispatch();
+  const User = useSelector((state) => state.currentUserReducer);
 
-  const dispatch = useDispatch()
-
-  useEffect(() => {
-    dispatch(fetchAllQuestions())
-    dispatch(fetchAllUsers())
-  }, [dispatch])
-
-  const handleBar=()=>{
+  const handleBar = () => {
     var x = document.getElementById("left-sidebar");
-    var y= document.getElementById("side-nav")
     if (x.className === "left-sidebar") {
       x.className += " responsive";
-      y.className += " res-side";
     } else {
-      x.className = " left-sidebar";
-      y.className += " side-nav";
-
+      x.className = "left-sidebar";
     }
-    
-}
+  };
 
+  useEffect(() => {
+    dispatch(fetchAllQuestions());
+    dispatch(fetchAllUsers());
+  }, [dispatch]);
 
+  const [bot, setBot] = useState(false);
+
+  const toggleBot = () => {
+    if (User) {
+      bot === true ? setBot(false) : setBot(true);
+    } else {
+      alert("please! Login to ask a question");
+    }
+  };
+
+  const steps = [
+    {
+      id: "Greet",
+
+      message: "Hello, Welcome to the Customer Support",
+
+      trigger: "Done",
+    },
+
+    {
+      id: "Done",
+
+      message: "Please enter your Name!",
+
+      trigger: "waiting1",
+    },
+
+    {
+      id: "waiting1",
+
+      user: true,
+
+      trigger: "Name",
+    },
+
+    {
+      id: "Name",
+
+      message: "Hi {previousValue}, Please select your issue",
+
+      trigger: "issues",
+    },
+
+    {
+      id: "issues",
+
+      options: [
+        { value: "React", label: "React", trigger: "React" },
+        { value: "Nodejs", label: "Nodejs", trigger: "Nodejs" },
+        { value: "MongoDB", label: "MongoDB", trigger: "MongoDB" },
+        { value: "Express", label: "Express", trigger: "expressjs" },
+        {
+          value: "Programming Language",
+          label: "Programming Language",
+          trigger: "prog",
+        },
+        {
+          value: "How to post an answer ?",
+          label: "How to ask question ?",
+          trigger: "post",
+        },
+        {
+          value: "Popular Languages",
+          label: "Popular Languages",
+          trigger: "popular",
+        },
+      ],
+    },
+
+    {
+      id: "React",
+      message:
+        "Thanks for telling your React.js issue, Visit tags section to resolve your issues.",
+      end: true,
+    },
+    {
+      id: "Nodejs",
+      message:
+        "Thanks for telling your Node.js issue,  Visit tags section to resolve your issues.",
+      end: true,
+    },
+    {
+      id: "MongoDB",
+      message:
+        "Thanks for telling your MongoDB issue,  Visit tags section to resolve your issues.",
+      end: true,
+    },
+    {
+      id: "expressjs",
+      message:
+        "Thanks for telling your Express.js issue,  Visit tags section to resolve your issues.",
+      end: true,
+    },
+    {
+      id: "prog",
+      message:
+        "Thanks for telling your issue,  Visit tags section to resolve your issues.",
+      end: true,
+    },
+    {
+      id: "ask",
+      message:
+        "Thanks for telling your issue, Login or signup to website and click on ask question button. Write your questions there.",
+      end: true,
+    },
+    {
+      id: "post",
+      message:
+        "Thanks for telling your issue, Login or signup to website. Click on the question you wish to answer. Click on post answer. Post your answer there.",
+      end: true,
+    },
+    {
+      id: "popular",
+      message:
+        "Thanks for telling your issue,  Visit tags section to resolve your issues.",
+      end: true,
+    },
+  ];
 
   return (
     <div className="App">
-      <Router >
-        <Navbar handleBar={handleBar}/>
+      <Router>
+        <Navbar handleBar={handleBar} />
         <AllRoutes />
-        </Router>
-     
+
+        {!bot ? (
+          <img
+            src={chat}
+            style={{
+              position: "fixed",
+              right: "45px",
+              bottom: "25px",
+              color: "white",
+              backgroundColor: "rgb(157, 216, 241)",
+              cursor: "pointer",
+              padding: "13px",
+              borderRadius: "30px",
+            }}
+            alt="chatbot"
+            width="70"
+            onClick={toggleBot}
+          />
+        ) : (
+          <>
+            <Segment
+              style={{ position: "fixed", right: "10px", bottom: "5px" }}
+            >
+              <div className="flex-bot" style={{position:"relative" }}>
+
+                <ChatBot steps={steps} />
+                <img
+                  className="close-btn"
+                  onClick={toggleBot}
+                  src={close}
+                  alt="chatbot"
+                  width="14"
+                />
+              </div>
+            </Segment>
+          </>
+        )}
+      </Router>
     </div>
   );
 }

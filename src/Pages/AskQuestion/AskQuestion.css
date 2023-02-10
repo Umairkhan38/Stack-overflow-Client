@@ -1,11 +1,14 @@
 .ask-question{
     min-height: 100vh;
     background-color: #f1f2f3;
+    width:100%;
 }
 
 .ask-ques-container{
     margin: auto;
     max-width: 1200px;
+    margin:2px 8px;
+
 }
 
 .ask-ques-container h1{
@@ -52,4 +55,8 @@
 }
 .review-btn:hover{
     background-color: #0086d8;
+}
+
+.container:nth-child(1){
+    display: none;
 }

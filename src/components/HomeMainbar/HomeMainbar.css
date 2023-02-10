@@ -49,7 +49,7 @@
 
 .display-question-details{
     flex-grow: 1;
-    padding: 0px 20px;
+    padding: 5px 20px;
 }
 
 .question-title-link{
@@ -89,3 +89,6 @@
 .display-tags-time .display-time {
     font-size: 13px;
 }
+
+
+
