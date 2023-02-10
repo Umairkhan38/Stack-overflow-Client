@@ -87,8 +87,13 @@ function App() {
           trigger: "prog",
         },
         {
+          value: "How to Ask a Question ?",
+          label: "How to Ask a Question ?",
+          trigger: "ask",
+        },
+        {
           value: "How to post an answer ?",
-          label: "How to ask question ?",
+          label: "How to post an answer ?",
           trigger: "post",
         },
         {

@@ -1,13 +1,13 @@
 import axios from 'axios'
 
-const API = axios.create({ baseURL: 'http://localhost:5000'})
-// const API = axios.create({ baseURL: 'https://stackoverflowclone-backend-ju93.onrender.com'})
+// const API = axios.create({ baseURL: 'http://localhost:5000'})
+const API = axios.create({ baseURL: 'https://stackoverflowclone-backend-ju93.onrender.com'})
 
 API.interceptors.request.use((req) => {
     if(localStorage.getItem('Profile')){
         req.headers.authorization = `Bearer ${JSON.parse(localStorage.getItem('Profile')).token}`
     }
-    return req;
+    return req; 
 })
 
 export const logIn = (authData) => API.post('/user/login', authData);
