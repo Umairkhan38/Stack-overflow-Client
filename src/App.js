@@ -170,8 +170,8 @@ function App() {
               color: "white",
               backgroundColor: "rgb(157, 216, 241)",
               cursor: "pointer",
-              padding: "13px",
-              borderRadius: "30px",
+              padding: "10px",
+              borderRadius: "18px",
             }}
             alt="chatbot"
             width="70"
@@ -179,21 +179,12 @@ function App() {
           />
         ) : (
           <>
-            <Segment
-              style={{ position: "fixed", right: "10px", bottom: "5px" }}
-            >
-              <div className="flex-bot" style={{position:"relative" }}>
-
-                <ChatBot steps={steps} />
-                <img
-                  className="close-btn"
-                  onClick={toggleBot}
-                  src={close}
-                  alt="chatbot"
-                  width="14"
-                />
-              </div>
-            </Segment>
+            
+         <div className="flex-bot" style={{position:"fixed", bottom:"2px", right:"3px" }}>
+            <iframe style={{position:"relative", bottom:"2px", right:"3px" }} width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/46d8bb65-cf8a-4ac3-bb2d-a5a5ed0cfe10"></iframe>
+            <img src={close} onClick={toggleBot} width='15' style={{position:"absolute",padding:"3px 5px", top:"18px", right:"25px",borderRadius:"3px",  backgroundColor:"white",zIndex:"200" }} />
+            </div>
+        
           </>
         )}
       </Router>
