@@ -6,11 +6,11 @@ import Navbar from "./components/Navbar/Navbar";
 import AllRoutes from "./AllRoutes";
 import { fetchAllQuestions } from "./actions/question";
 import { fetchAllUsers } from "./actions/users";
-import ChatBot from "react-simple-chatbot";
 import { Segment } from "semantic-ui-react";
 import chat from "./assets/headset-solid.svg";
 import close from "./assets/xmark-solid.svg";
 import { useSelector } from "react-redux";
+import ChatBot from "./Pages/ChatBot/ChatBot";
 
 function App() {
   const dispatch = useDispatch();
@@ -178,15 +178,12 @@ function App() {
             onClick={toggleBot}
           />
         ) : (
-          <>
-            
-         <div className="flex-bot" style={{position:"fixed", bottom:"2px", right:"3px" }}>
-            <iframe style={{position:"relative", bottom:"2px", right:"3px" }} width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/46d8bb65-cf8a-4ac3-bb2d-a5a5ed0cfe10"></iframe>
+
+         <div className="flex-bot" style={{position:"fixed", bottom:"3px", right:"5px" }}>
+            <ChatBot />
             <img src={close} onClick={toggleBot} width='15' style={{position:"absolute",padding:"3px 5px", top:"18px", right:"25px",borderRadius:"3px",  backgroundColor:"white",zIndex:"200" }} />
-            </div>
-        
-          </>
-        )}
+          </div>        
+      )}
       </Router>
     </div>
   );
