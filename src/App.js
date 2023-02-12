@@ -40,119 +40,119 @@ function App() {
     }
   };
 
-  const steps = [
-    {
-      id: "Greet",
+  // const steps = [
+  //   {
+  //     id: "Greet",
 
-      message: "Hello, Welcome to the Customer Support",
+  //     message: "Hello, Welcome to the Customer Support",
 
-      trigger: "Done",
-    },
+  //     trigger: "Done",
+  //   },
 
-    {
-      id: "Done",
+  //   {
+  //     id: "Done",
 
-      message: "Please enter your Name!",
+  //     message: "Please enter your Name!",
 
-      trigger: "waiting1",
-    },
+  //     trigger: "waiting1",
+  //   },
 
-    {
-      id: "waiting1",
+  //   {
+  //     id: "waiting1",
 
-      user: true,
+  //     user: true,
 
-      trigger: "Name",
-    },
+  //     trigger: "Name",
+  //   },
 
-    {
-      id: "Name",
+  //   {
+  //     id: "Name",
 
-      message: "Hi {previousValue}, Please select your issue",
+  //     message: "Hi {previousValue}, Please select your issue",
 
-      trigger: "issues",
-    },
+  //     trigger: "issues",
+  //   },
 
-    {
-      id: "issues",
+  //   {
+  //     id: "issues",
 
-      options: [
-        { value: "React", label: "React", trigger: "React" },
-        { value: "Nodejs", label: "Nodejs", trigger: "Nodejs" },
-        { value: "MongoDB", label: "MongoDB", trigger: "MongoDB" },
-        { value: "Express", label: "Express", trigger: "expressjs" },
-        {
-          value: "Programming Language",
-          label: "Programming Language",
-          trigger: "prog",
-        },
-        {
-          value: "How to Ask a Question ?",
-          label: "How to Ask a Question ?",
-          trigger: "ask",
-        },
-        {
-          value: "How to post an answer ?",
-          label: "How to post an answer ?",
-          trigger: "post",
-        },
-        {
-          value: "Popular Languages",
-          label: "Popular Languages",
-          trigger: "popular",
-        },
-      ],
-    },
+  //     options: [
+  //       { value: "React", label: "React", trigger: "React" },
+  //       { value: "Nodejs", label: "Nodejs", trigger: "Nodejs" },
+  //       { value: "MongoDB", label: "MongoDB", trigger: "MongoDB" },
+  //       { value: "Express", label: "Express", trigger: "expressjs" },
+  //       {
+  //         value: "Programming Language",
+  //         label: "Programming Language",
+  //         trigger: "prog",
+  //       },
+  //       {
+  //         value: "How to Ask a Question ?",
+  //         label: "How to Ask a Question ?",
+  //         trigger: "ask",
+  //       },
+  //       {
+  //         value: "How to post an answer ?",
+  //         label: "How to post an answer ?",
+  //         trigger: "post",
+  //       },
+  //       {
+  //         value: "Popular Languages",
+  //         label: "Popular Languages",
+  //         trigger: "popular",
+  //       },
+  //     ],
+  //   },
 
-    {
-      id: "React",
-      message:
-        "Thanks for telling your React.js issue, Visit tags section to resolve your issues.",
-      end: true,
-    },
-    {
-      id: "Nodejs",
-      message:
-        "Thanks for telling your Node.js issue,  Visit tags section to resolve your issues.",
-      end: true,
-    },
-    {
-      id: "MongoDB",
-      message:
-        "Thanks for telling your MongoDB issue,  Visit tags section to resolve your issues.",
-      end: true,
-    },
-    {
-      id: "expressjs",
-      message:
-        "Thanks for telling your Express.js issue,  Visit tags section to resolve your issues.",
-      end: true,
-    },
-    {
-      id: "prog",
-      message:
-        "Thanks for telling your issue,  Visit tags section to resolve your issues.",
-      end: true,
-    },
-    {
-      id: "ask",
-      message:
-        "Thanks for telling your issue, Login or signup to website and click on ask question button. Write your questions there.",
-      end: true,
-    },
-    {
-      id: "post",
-      message:
-        "Thanks for telling your issue, Login or signup to website. Click on the question you wish to answer. Click on post answer. Post your answer there.",
-      end: true,
-    },
-    {
-      id: "popular",
-      message:
-        "Thanks for telling your issue,  Visit tags section to resolve your issues.",
-      end: true,
-    },
-  ];
+  //   {
+  //     id: "React",
+  //     message:
+  //       "Thanks for telling your React.js issue, Visit tags section to resolve your issues.",
+  //     end: true,
+  //   },
+  //   {
+  //     id: "Nodejs",
+  //     message:
+  //       "Thanks for telling your Node.js issue,  Visit tags section to resolve your issues.",
+  //     end: true,
+  //   },
+  //   {
+  //     id: "MongoDB",
+  //     message:
+  //       "Thanks for telling your MongoDB issue,  Visit tags section to resolve your issues.",
+  //     end: true,
+  //   },
+  //   {
+  //     id: "expressjs",
+  //     message:
+  //       "Thanks for telling your Express.js issue,  Visit tags section to resolve your issues.",
+  //     end: true,
+  //   },
+  //   {
+  //     id: "prog",
+  //     message:
+  //       "Thanks for telling your issue,  Visit tags section to resolve your issues.",
+  //     end: true,
+  //   },
+  //   {
+  //     id: "ask",
+  //     message:
+  //       "Thanks for telling your issue, Login or signup to website and click on ask question button. Write your questions there.",
+  //     end: true,
+  //   },
+  //   {
+  //     id: "post",
+  //     message:
+  //       "Thanks for telling your issue, Login or signup to website. Click on the question you wish to answer. Click on post answer. Post your answer there.",
+  //     end: true,
+  //   },
+  //   {
+  //     id: "popular",
+  //     message:
+  //       "Thanks for telling your issue,  Visit tags section to resolve your issues.",
+  //     end: true,
+  //   },
+  // ];
 
   return (
     <div className="App">
