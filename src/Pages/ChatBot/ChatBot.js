@@ -12,6 +12,8 @@ function ChatBot() {
     const person= "from human"
     const [qna,setQna]= useState([]);
     const [loading,setLoading]= useState(false);
+
+// const API = axios.create({ baseURL: 'http://localhost:5000'})
     
     const renderContent=(qna)=>{
         const value= qna.value;
@@ -26,20 +28,21 @@ function ChatBot() {
     }
 
 
-
     const handleSend=()=>{
         const question = ipRef.current.value;
             updateQna(person, question)
             setLoading(true)
-        axios.post('http://localhost:5000/chat',{   
+        // API.post('/chat',{   
+          axios.post('https://stackoverflow-backend-cc6o.onrender.com/chat',{
             question,  
         }).then(res=>{
             updateQna(bot, res.data.answer)
             console.log(res.data.answer)
-        }).finally(()=>{
+        })
+        .catch(err=>console.log(err))
+        .finally(()=>{
             setLoading(false)
         })
-        // console.log({question})
     }
   return (
     <div className='chatBot'>

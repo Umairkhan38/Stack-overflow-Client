@@ -159,7 +159,7 @@ function App() {
       <Router>
         <Navbar handleBar={handleBar} />
         <AllRoutes />
-
+        
         {!bot ? (
           <img
             src={chat}
@@ -181,7 +181,8 @@ function App() {
 
          <div className="flex-bot" style={{position:"fixed", bottom:"3px", right:"5px" }}>
             <ChatBot />
-            <img src={close} onClick={toggleBot} width='15' style={{position:"absolute",padding:"3px 5px", top:"18px", right:"25px",borderRadius:"3px",  backgroundColor:"white",zIndex:"200" }} />
+            <img src={close} onClick={toggleBot} width='15' style={{position:"absolute",padding:"3px 5px", top:"18px", right:"25px",borderRadius:"3px",  backgroundColor:"white",zIndex:"200",cursor: "pointer"
+ }} />
           </div>        
       )}
       </Router>
