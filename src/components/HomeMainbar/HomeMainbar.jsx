@@ -2,7 +2,9 @@ import React from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { useSelector} from 'react-redux'
 import './HomeMainbar.css'
-import QuestionList from './QuestionList'
+import QuestionList from './QuestionList';
+import { toast } from "react-toastify";
+
 
 const HomeMainbar = () => {
 
@@ -67,7 +69,7 @@ const HomeMainbar = () => {
 
     const checkAuth = () => {
         if(user === null){
-            alert("login or signup to ask a question")
+            toast.error("Login or Signup to ask a question")
             navigate('/Auth')
         }else{
             navigate('/AskQuestion')

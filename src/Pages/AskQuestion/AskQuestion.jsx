@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-
+import { toast } from "react-toastify";
 import "./AskQuestion.css";
 import { askQuestion } from "../../actions/question";
 import LeftSidebar from "../../components/LeftSidebar/LeftSidebar";
@@ -28,8 +28,9 @@ const AskQuestion = () => {
           userId: User?.result._id,
         },
         navigate
-      )
-    );
+        )
+        );
+        toast.success("Question posted successfully!")
   };
 
   const handleEnter = (e) => {

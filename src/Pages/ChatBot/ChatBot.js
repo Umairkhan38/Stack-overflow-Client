@@ -33,7 +33,7 @@ function ChatBot() {
             updateQna(person, question)
             setLoading(true)
         // API.post('/chat',{   
-          axios.post('https://stackoverflow-backend-cc6o.onrender.com/chat',{
+          axios.post('http://localhost:5000/chat',{
             question,  
         }).then(res=>{
             updateQna(bot, res.data.answer)

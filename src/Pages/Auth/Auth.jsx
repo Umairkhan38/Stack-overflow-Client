@@ -1,7 +1,7 @@
 import React, {useState} from 'react'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-
+import { toast } from "react-toastify";
 import './Auth.css'
 import icon from '../../assets/icon.png'
 import AboutAuth from './AboutAuth'
@@ -23,13 +23,14 @@ const Auth = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         if(!email && !password){
-            alert('Enter email and password')
+            toast.error('Enter Email and Password')
         }
         if(isSignup){
             if(!name){
-                alert("Enter a name to continue")
+                toast.error("Enter a name to continue")
             }
             dispatch(signup({ name, email, password }, navigate))
+            toast.success("User Registered Successfully!")
         }else{
             dispatch(login({ email, password }, navigate))
         }

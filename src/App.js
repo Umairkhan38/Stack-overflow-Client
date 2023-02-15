@@ -11,6 +11,8 @@ import chat from "./assets/headset-solid.svg";
 import close from "./assets/xmark-solid.svg";
 import { useSelector } from "react-redux";
 import ChatBot from "./Pages/ChatBot/ChatBot";
+import { toast } from "react-toastify";
+
 
 function App() {
   const dispatch = useDispatch();
@@ -36,7 +38,7 @@ function App() {
     if (User) {
       bot === true ? setBot(false) : setBot(true);
     } else {
-      alert("please! Login to ask a question");
+      toast.error("please! Login to access a chatbot");
     }
   };
 

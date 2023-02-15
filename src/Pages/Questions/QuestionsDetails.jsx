@@ -3,7 +3,7 @@ import { useParams, Link, useNavigate, useLocation } from 'react-router-dom'
 import { useSelector, useDispatch} from 'react-redux'
 import moment from 'moment'
 import copy from 'copy-to-clipboard'
-
+import { toast } from "react-toastify";
 import upvote from '../../assets/sort-up.svg'
 import downvote from '../../assets/sort-down.svg'
 import './Questions.css'
@@ -79,13 +79,14 @@ const QuestionsDetails = () => {
     const handlePostAns = (e, answerLength) =>{
         e.preventDefault()
         if(User === null){
-            alert('Login or Signup to answer a question')
+            toast.error('Login or Signup to answer a question')
             Navigate('/Auth')
         }else{
             if(Answer === ''){
-                alert('Enter an answer before submitting')
+                toast.error('Enter an answer before submitting')
             } else{
                 dispatch(postAnswer({ id, noOfAnswers: answerLength + 1, answerBody: Answer, userAnswered: User.result.name, userId: User.result._id }))
+                toast.success("Answer posted Successfully!")
             }
         }
      }
@@ -97,6 +98,7 @@ const QuestionsDetails = () => {
 
     const handleDelete = () => {
         dispatch(deleteQuestion(id, Navigate))
+
     }
 
 
